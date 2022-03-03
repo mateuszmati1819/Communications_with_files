@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <time.h>
 #include "functions.h"
 
 
@@ -12,6 +13,7 @@ int main()
     FILE *fprt;
     int data;
     char singleline[150];
+    int tablica[5];
 
     fprt = fopen("D:/Praca/Projekty/Repozytoria/Tekst.txt","r");
     if(fprt==NULL)
@@ -29,11 +31,23 @@ int main()
     
 
     fclose(fprt);
+
+    printf(" \nTest for venture functions: \n");
+    // printf("Drawn number is: %d", venture_number(5));
+    
+    srand(time(NULL));
+    for(int i =0; i<5;i++)
+    {
+        tablica[i]=venture_number(49);
+    }
+    for(int i =0; i<5;i++)
+    {
+        printf("%d \n", tablica[i]);
+    }
+    
+    tablica[0]=lotto_numbers(tablica[5]);
+    printf("Check of function lotto_numbers: %d",tablica[0]);
+
     return 0;
 }
 
-// void clearScreen()
-// {
-//   const char *CLEAR_SCREEN_ANSI = "\e[1;1H\e[2J";
-//   write(STDOUT_FILENO, CLEAR_SCREEN_ANSI, 12);
-// }
